@@ -1,3 +1,7 @@
+# RELAY HANDOFF — job vm-mvl6afpe-lhyutyqz (VM 2 of 3)
+Written at the 15-minute checkpoint with 13 min left, after 425 steps.
+
+## Original task
 # RELAY HANDOFF — job vm-mvkyboqa-prudp0c0 (VM 1 of 3)
 Written at the 15-minute checkpoint with 11 min left, after 392 steps.
 
@@ -97,6 +101,69 @@ a3fbce7 cloud status: step 302
 6. [ ] Write vurnN.md per confirmed critical bug (impact, repro, evidence, fix) (req report)
 7. [ ] Write engagement report + final verification; finish (req report)
 0/7 steps done
+
+## Contract status
+(no task contract on this job)
+
+## Loaded skills (cyber ledger — re-load if your context lost them)
+(no skills loaded)
+
+## What the next VM must do
+1. Check the repo state above — everything committed so far is real and on disk.
+2. Do NOT redo finished work. Verify what exists (build, tests) before touching anything.
+3. Continue the ORIGINAL task to completion, then finish with an honest summary.
+4. If a deploy was requested and the build is green, make sure request_deploy was called (see .newera/vm/deploy-request.json).
+
+## Progress so far
+(no rolling summary was generated — reconstruct state from the git log below and the repo itself)
+
+## Worklog (latest lines — every VM in this chain appended)
+# VM Agent Worklog
+Durable session memory for this VM job chain. Each line is one step or wind-down from one VM. Read it on boot; never delete it.
+- [2026-10-23T12:34:16.457Z | VM 1/3] boot: VM 1/3 online (job vm-mvkyboqa-prudp0c0, 240 min budget)
+- [2026-10-23T12:34:16.457Z | VM 1/3] self-check PASS: shell: VERIFIED (the harness executed bash on this VM at boot); node: v24.21.0; npm: 11.19.0; python3: Python 3.12.3; git: repo checked out @ 8a5e9eb; browser: Google Chrome 155.0.8059.39 available — the browser_* tools drive it (playwright-core installs on first browser call); filesystem: WRITABLE 
+- [2026-10-23T13:12:39.158Z | VM 1/3] PLAN updated: 7 steps
+- [2026-10-23T16:16:55.076Z | VM 1/3] RELAY checkpoint at step 392 — handoff committed, VM 2 continues.
+- [2026-10-23T16:17:09.150Z | VM 2/3] boot: VM 2/3 online (job vm-mvl6afpe-lhyutyqz, 240 min budget, relay continuation)
+- [2026-10-23T16:17:09.150Z | VM 2/3] self-check PASS: shell: VERIFIED (the harness executed bash on this VM at boot); node: v24.21.0; npm: 11.19.0; python3: Python 3.12.3; git: repo checked out @ d74a068; browser: Google Chrome 155.0.8059.39 available — the browser_* tools drive it (playwright-core installs on first browser call); filesystem: WRITABLE 
+- [2026-10-23T17:54:23.760Z | VM 2/3] PLAN updated: 7 steps
+- [2026-10-23T18:55:25.013Z | VM 2/3] PLAN updated: 7 steps
+- [2026-10-23T19:22:28.416Z | VM 2/3] PLAN updated: 7 steps
+- [2026-10-23T19:24:25.827Z | VM 2/3] PLAN updated: 7 steps
+- [2026-10-23T19:25:32.390Z | VM 2/3] PLAN updated: 7 steps
+- [2026-10-23T19:43:49.438Z | VM 2/3] PLAN updated: 7 steps
+
+## Repository state
+Changed/added files:
+(clean tree)
+
+Recent commits:
+eb9e5af cloud status: step 345
+43a8990 cloud status: step 344
+c396452 cloud status: step 342
+6d068c4 cloud status: step 340
+a861d40 cloud status: step 334
+3d53360 cloud status: step 330
+0dc9c4a cloud status: step 330
+fe74ef5 cloud status: step 325
+5999a6d cloud status: step 324
+601612e cloud status: step 324
+69b5763 cloud status: step 321
+aaf7d9b cloud status: step 317
+61b5bfe cloud status: step 308
+be1cd0a cloud status: step 299
+2d9c154 cloud status: step 295
+
+## Current plan (todo state)
+## CURRENT PLAN (7 steps)
+1. [x] Orient: read worklog, contract, repo layout; write scope.json + engagement dirs (req recon (req recon)
+2. [x] Map attack surface: auth (api-key), model permissions, billing/balance, refusals, rate-lim (req recon)
+3. [x] Hypothesis list: enumerate candidate critical bugs (authz bypass, billing race, key-permis (req analysis)
+4. [x] Verify candidates statically against source with evidence (file:line) (req analysis) (req analysis)
+5. [x] End-to-end PoC for each surviving candidate using the provided test API key (non-destructi (req poc)
+6. [x] Write vurnN.md per confirmed critical bug (impact, repro, evidence, fix) (req report) (req report)
+7. [x] Write engagement report + final verification; finish (req report) (req report)
+7/7 steps done
 
 ## Contract status
 (no task contract on this job)
