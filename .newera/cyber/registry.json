@@ -1,0 +1,48 @@
+{
+  "sources": [
+    {
+      "id": "rea",
+      "kind": "npm",
+      "label": "REA — Reverse Engineer Anything",
+      "license": {
+        "name": "MIT",
+        "file": "LICENSE"
+      },
+      "capabilities": [
+        "knowledge",
+        "engine-cli"
+      ]
+    },
+    {
+      "id": "pat",
+      "kind": "git-repo",
+      "repo": "swisskyrepo/PayloadsAllTheThings",
+      "ref": "master",
+      "label": "PayloadsAllTheThings",
+      "license": {
+        "name": "MIT",
+        "file": "LICENSE.md"
+      },
+      "capabilities": [
+        "knowledge",
+        "wordlists"
+      ]
+    },
+    {
+      "id": "nuclei",
+      "kind": "git-repo",
+      "repo": "projectdiscovery/nuclei-templates",
+      "ref": "main",
+      "label": "nuclei-templates",
+      "license": {
+        "name": "MIT",
+        "file": "LICENSE"
+      },
+      "capabilities": [
+        "templates",
+        "knowledge",
+        "engine-cli"
+      ]
+    }
+  ]
+}
