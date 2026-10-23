@@ -1,0 +1,16 @@
+{
+  "declared_by": "user (bug bounty, pollinations/pollinations)",
+  "authorization": "User owns a testing API key with 2 pollen and explicitly asked for autonomous bug hunting. No PRs, no harm, ethical testing only.",
+  "targets": [
+    "https://github.com/pollinations/pollinations",
+    "https://enter.pollinations.ai",
+    "https://gen.pollinations.ai",
+    "https://text.pollinations.ai",
+    "https://image.pollinations.ai"
+  ],
+  "notes": [
+    "Source review is the primary mode: static analysis of the cloned repo.",
+    "Live requests limited to low-volume, authenticated with the provided test key, no DoS, no destructive actions.",
+    "Loopback / local reproduction preferred for PoCs (run apps locally with mock bindings)."
+  ]
+}
