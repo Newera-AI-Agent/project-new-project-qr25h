@@ -39,3 +39,4 @@ Durable session memory for this VM job chain. Each line is one step or wind-down
 - [2026-10-23T23:38:08.690Z | VM 4/3] boot: VM 4/3 online (job vm-mvlm1jpp-gxgchf43, 240 min budget, relay continuation)
 - [2026-10-23T23:38:08.691Z | VM 4/3] self-check PASS: shell: VERIFIED (the harness executed bash on this VM at boot); node: v24.21.0; npm: 11.19.0; python3: Python 3.12.3; git: repo checked out @ d2280a2; browser: Google Chrome 155.0.8059.39 available — the browser_* tools drive it (playwright-core installs on first browser call); filesystem: WRITABLE 
 - [2026-10-23T23:38:09.264Z | VM 4/3] boot auto-setup: npm install --no-audit --no-fund ok
+- [2026-10-23T23:42:32.760Z | VM 4/3] VERIFIED green: cd pollinations-repo && npm run build 2>&1 | tail -20
