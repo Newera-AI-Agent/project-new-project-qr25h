@@ -64,6 +64,20 @@
     </div>
     
     <div class="vuln">
+        <h2><span class="severity">CRITICAL</span> VURN-8: Auth Bypass on Image Generation via Cache Poisoning</h2>
+        <p><strong>Endpoints:</strong> /image, /v1/images/generations, /v1/images/edits, /v1/images/variations</p>
+        <p><strong>Root Cause:</strong> media-cache.ts:27-70 - Missing Authorization header in cache key</p>
+        <p><a href="vurn8.md">View Full Report →</a></p>
+    </div>
+    
+    <div class="vuln">
+        <h2><span class="severity">CRITICAL</span> VURN-9: Rate Limiting Bypass via Cache Key Manipulation</h2>
+        <p><strong>Endpoints:</strong> All cached endpoints</p>
+        <p><strong>Root Cause:</strong> Cache keys exclude rate limit identity/user tier</p>
+        <p><a href="vurn9.md">View Full Report →</a></p>
+    </div>
+    
+    <div class="vuln">
         <h2>📋 Summary Documents</h2>
         <ul>
             <li><a href="ENGAGEMENT_REPORT.md">Executive Engagement Report</a></li>
