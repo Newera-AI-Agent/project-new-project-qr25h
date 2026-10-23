@@ -33,6 +33,14 @@ files.forEach(file => {
   }
 });
 
+// Copy poc-test-results.md
+const pocSrc = path.join(__dirname, 'poc-test-results.md');
+const pocDest = path.join(distDir, 'poc-test-results.md');
+if (fs.existsSync(pocSrc)) {
+  fs.copyFileSync(pocSrc, pocDest);
+  console.log('Copied poc-test-results.md to dist/');
+}
+
 // Create index.html
 const indexHtml = `<!DOCTYPE html>
 <html lang="en">
@@ -118,6 +126,7 @@ const indexHtml = `<!DOCTYPE html>
         <ul>
             <li><a href="ENGAGEMENT_REPORT.md">Executive Engagement Report</a></li>
             <li><a href="VULNERABILITY_INDEX.md">Vulnerability Index</a></li>
+            <li><a href="poc-test-results.md">PoC Test Results & Raw API Outputs</a></li>
         </ul>
     </div>
     
