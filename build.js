@@ -15,6 +15,8 @@ const files = [
   'vurn5.md',
   'vurn6.md',
   'vurn7.md',
+  'vurn8.md',
+  'vurn9.md',
   'ENGAGEMENT_REPORT.md',
   'VULNERABILITY_INDEX.md',
   'README.md'
@@ -95,6 +97,20 @@ const indexHtml = `<!DOCTYPE html>
     <div class="vuln">
         <h2><span class="severity">CRITICAL</span> VURN-7: Additional Cache Auth Bypass Variant</h2>
         <p><a href="vurn7.md">View Full Report →</a></p>
+    </div>
+    
+    <div class="vuln">
+        <h2><span class="severity">CRITICAL</span> VURN-8: Auth Bypass on Image Generation via Cache Poisoning</h2>
+        <p><strong>Endpoints:</strong> /image, /v1/images/generations, /v1/images/edits, /v1/images/variations</p>
+        <p><strong>Root Cause:</strong> media-cache.ts:27-70 - Missing Authorization header in cache key</p>
+        <p><a href="vurn8.md">View Full Report →</a></p>
+    </div>
+    
+    <div class="vuln">
+        <h2><span class="severity">CRITICAL</span> VURN-9: Rate Limiting Bypass via Cache Key Manipulation</h2>
+        <p><strong>Endpoints:</strong> All cached endpoints</p>
+        <p><strong>Root Cause:</strong> Cache keys exclude rate limit identity/user tier</p>
+        <p><a href="vurn9.md">View Full Report →</a></p>
     </div>
     
     <div class="vuln">
