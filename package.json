@@ -1,0 +1,13 @@
+{
+  "name": "pollinations-security-audit",
+  "version": "1.0.0",
+  "description": "Security audit vulnerability reports for Pollinations AI",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build.js",
+    "test": "echo 'Security audit - no tests to run'"
+  },
+  "keywords": ["security", "audit", "vulnerability", "pollinations"],
+  "author": "Security Research Agent",
+  "license": "MIT"
+}
