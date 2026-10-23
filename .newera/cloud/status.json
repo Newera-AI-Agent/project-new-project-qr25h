@@ -1,23 +1,23 @@
 {
   "code": "z72cjgd3gkrs",
-  "jobId": "vm-mvkyboqa-prudp0c0",
-  "relayIndex": 0,
+  "jobId": "vm-mvl6afpe-lhyutyqz",
+  "relayIndex": 1,
   "maxMinutes": 240,
   "state": "running",
-  "step": 365,
-  "minutesLeft": 12,
+  "step": 5,
+  "minutesLeft": 232,
   "todoOpen": 7,
-  "updatedAt": "2026-10-23T16:16:17.231Z",
+  "updatedAt": "2026-10-23T16:19:09.600Z",
   "byok": {
-    "active": true,
-    "source": "mixed",
+    "active": false,
+    "source": "admin",
     "roles": {
-      "steps": "byok",
-      "subagent": "byok",
-      "summarize": "byok",
-      "repair": "byok",
-      "consult": "byok",
-      "vision": "byok",
+      "steps": "admin",
+      "subagent": "admin",
+      "summarize": "admin",
+      "repair": "admin",
+      "consult": "admin",
+      "vision": "admin",
       "image": "admin"
     }
   }
