@@ -14,3 +14,5 @@ Durable session memory for this VM job chain. Each line is one step or wind-down
 - [2026-10-23T19:25:32.390Z | VM 2/3] PLAN updated: 7 steps
 - [2026-10-23T19:43:49.438Z | VM 2/3] PLAN updated: 7 steps
 - [2026-10-23T19:58:14.723Z | VM 2/3] RELAY checkpoint at step 425 — handoff committed, VM 3 continues.
+- [2026-10-23T19:58:30.415Z | VM 3/3] boot: VM 3/3 online (job vm-mvle7297-thfwczib, 240 min budget, relay continuation)
+- [2026-10-23T19:58:30.415Z | VM 3/3] self-check PASS: shell: VERIFIED (the harness executed bash on this VM at boot); node: v24.21.0; npm: 11.19.0; python3: Python 3.12.3; git: repo checked out @ dfc9783; browser: Google Chrome 155.0.8059.39 available — the browser_* tools drive it (playwright-core installs on first browser call); filesystem: WRITABLE 
