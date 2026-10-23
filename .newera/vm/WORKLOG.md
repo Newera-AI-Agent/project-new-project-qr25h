@@ -33,3 +33,5 @@ Durable session memory for this VM job chain. Each line is one step or wind-down
 - [2026-10-23T22:34:27.341Z | VM 3/3] VERIFIED green: npm run build 2>&1
 - [2026-10-23T22:37:03.807Z | VM 3/3] VERIFIED green: npm run build 2>&1
 - [2026-10-23T23:11:13.496Z | VM 3/3] VERIFIED green: cd pollinations-repo/gen.pollinations.ai && npm run typecheck
+- [2026-10-23T23:19:32.769Z | VM 3/3] VERIFIED green: cd pollinations-repo/gen.pollinations.ai && npm run build 2>&1 | head -100
+- [2026-10-23T23:19:47.435Z | VM 3/3] VERIFIED green: cd pollinations-repo/gen.pollinations.ai && npm run build:staging 2>&1 | head -200
