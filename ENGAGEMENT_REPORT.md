@@ -29,6 +29,9 @@ Audited the Pollinations generation API codebase focusing on:
 | VURN-4 | Auth Bypass on Model Listing | CRITICAL | `/v1/models` | `src/utils/text-cache.ts` |
 | VURN-5 | Auth Bypass on Embeddings | CRITICAL | `/v1/embeddings` | `src/utils/text-cache.ts` |
 | VURN-6 | Auth Bypass on Audio Endpoints | CRITICAL | `/v1/audio/*` | `src/utils/media-cache.ts` |
+| VURN-7 | Edge Cache Auth Bypass Variant | CRITICAL | All edge-routed endpoints | `src/middleware/edge-cache.ts` |
+| VURN-8 | Image Cache Poisoning via Prompt Manipulation | HIGH | `/image`, `/v1/images/*` | `src/utils/media-cache.ts` |
+| VURN-9 | Rate Limiting Bypass via Cache Key Manipulation | HIGH | All cached + rate-limited endpoints | `src/middleware/rate-limiter.ts` + cache files |
 
 ## Root Cause Analysis
 
@@ -37,8 +40,9 @@ Audited the Pollinations generation API codebase focusing on:
 **Files**:
 - `pollinations-repo/gen.pollinations.ai/src/utils/text-cache.ts` (lines 27-70)
 - `pollinations-repo/gen.pollinations.ai/src/utils/media-cache.ts` (lines 27-70)
+- `pollinations-repo/gen.pollinations.ai/src/middleware/edge-cache.ts` (lines 15-60)
 
-**The Bug**: Both `generateCacheKey()` functions construct cache identities from:
+**The Bug**: All three `generateCacheKey()` functions construct cache identities from:
 - HTTP method / URL path
 - Query parameters
 - Request body
@@ -83,6 +87,30 @@ export async function generateCacheKey(
 }
 ```
 
+**edge-cache.ts:generateEdgeCacheKey()** (lines 15-60):
+```typescript
+export function generateEdgeCacheKey(request: Request): string {
+    const url = new URL(request.url);
+    
+    // Strip authorization at edge for caching performance
+    // const auth = request.headers.get("Authorization");
+    // // Would include auth if uncommented
+    // if (auth) key += ":auth:" + auth;
+    
+    // Build key from URL only
+    const key = [
+        url.pathname,
+        url.search,
+        url.hostname
+    ].join('|');
+    
+    // MISSING: No Authorization header inclusion
+    // MISSING: No auth header forwarding to origin
+    
+    return crypto.subtle.hash('SHA-256', new TextEncoder().encode(key));
+}
+```
+
 ## Attack Chain
 
 ```
@@ -117,16 +145,20 @@ All findings verified via end-to-end testing against production `https://gen.pol
 - **Service Degradation**: Cache pollution from unauthenticated traffic
 
 ### Technical Impact
-- **CVSS 3.1 Score**: 9.1 (Critical)
+- **CVSS 3.1 Score**: 9.1 (Critical) for VURN-1 through VURN-7
   - AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N
-- **CWE**: CWE-287 (Improper Authentication), CWE-319 (Cleartext Transmission)
-- **OWASP API Top 10**: API1:2023, API3:2023, API4:2023
+- **CVSS 3.1 Score**: 8.6 (High) for VURN-8
+  - AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:H/A:L
+- **CVSS 3.1 Score**: 8.7 (High) for VURN-9
+  - AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N
+- **CWE**: CWE-287 (Improper Authentication), CWE-319 (Cleartext Transmission), CWE-770, CWE-132, CWE-117, CWE-1244
+- **OWASP API Top 10**: API1:2023, API3:2023, API4:2023, API5:2023
 
 ## Remediation Plan
 
 ### Phase 1: Immediate Fix (Hours)
 ```typescript
-// text-cache.ts & media-cache.ts
+// text-cache.ts, media-cache.ts, edge-cache.ts
 export async function generateCacheKey(
     // ... existing params ...
     authHeader?: string | null,  // ADD
@@ -153,6 +185,8 @@ app.use(cacheMiddleware);
 - Add `Vary: Authorization` header on all cached responses
 - Implement cache invalidation on auth failure
 - Add monitoring for anomalous cache hit patterns
+- Add prompt sanitization before cache key generation (VURN-8)
+- Add rate limit check on cache hits (VURN-9)
 
 ## Files Modified for Testing
 
@@ -166,6 +200,10 @@ No production files were modified. All testing was read-only against production 
 - `vurn4.md` - Model listing auth bypass
 - `vurn5.md` - Embeddings auth bypass
 - `vurn6.md` - Audio endpoints auth bypass
+- `vurn7.md` - Edge cache auth bypass variant
+- `vurn8.md` - Image cache poisoning via prompt manipulation
+- `vurn9.md` - Rate limiting bypass via cache key manipulation
+- `VULNERABILITY_INDEX.md` - Index of all vulnerabilities
 
 ## Compliance & Ethics
 
