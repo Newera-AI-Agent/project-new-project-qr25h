@@ -83,3 +83,6 @@ Durable session memory for this VM job chain. Each line is one step or wind-down
 - [2026-10-24T02:56:21.415Z | VM 4/3] VERIFIED green: cd pollinations-repo/enter.pollinations.ai && npm run typecheck 2>&1 | tail -20
 - [2026-10-24T03:04:17.597Z | VM 4/3] VERIFIED green: cd pollinations-repo/enter.pollinations.ai && npm run build:production 2>&1 | tail -30
 - [2026-10-24T03:17:22.945Z | VM 4/3] RELAY checkpoint at step 546 — handoff committed, VM 5 continues.
+- [2026-10-24T03:17:39.889Z | VM 5/3] boot: VM 5/3 online (job vm-mvltvso9-7wfvkunt, 240 min budget, relay continuation)
+- [2026-10-24T03:17:39.890Z | VM 5/3] self-check PASS: shell: VERIFIED (the harness executed bash on this VM at boot); node: v24.21.0; npm: 11.19.0; python3: Python 3.12.3; git: repo checked out @ 2165ba3; browser: Google Chrome 155.0.8059.39 available — the browser_* tools drive it (playwright-core installs on first browser call); filesystem: WRITABLE 
+- [2026-10-24T03:17:40.653Z | VM 5/3] boot auto-setup: npm install --no-audit --no-fund ok
