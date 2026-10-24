@@ -1,7 +1,7 @@
 {
   "subdomain": "pollinations-security-audit",
   "mode": "preview",
-  "build_output": "dist",
-  "job": "vm-mvlm1jpp-gxgchf43",
-  "at": "2026-10-24T02:35:12.434Z"
+  "build_output": "./dist",
+  "job": "vm-mvltvso9-7wfvkunt",
+  "at": "2026-10-24T04:09:56.524Z"
 }
