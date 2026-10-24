@@ -89,3 +89,5 @@ Durable session memory for this VM job chain. Each line is one step or wind-down
 - [2026-10-24T03:25:41.029Z | VM 5/3] VERIFIED green: npm run build 2>&1 | tail -30
 - [2026-10-24T03:44:09.352Z | VM 5/3] VERIFIED green: cd pollinations-repo && npm run build 2>&1 | tail -30
 - [2026-10-24T03:46:59.027Z | VM 5/3] VERIFIED green: cd pollinations-repo && npm run build --workspace=pollinations-gen --workspace=pollinations-enter 2>&1 | tail -50
+- [2026-10-24T03:47:51.940Z | VM 5/3] VERIFIED green: cd pollinations-repo && npm run build:production --workspace=pollinations-gen --workspace=pollinations-enter 2>&1 | tail -50
+- [2026-10-24T03:48:54.249Z | VM 5/3] VERIFIED green: cd pollinations-repo && npm run typecheck --workspace=pollinations-gen --workspace=pollinations-enter 2>&1 | tail -20
